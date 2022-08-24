@@ -13,10 +13,10 @@
   
     
         ,"post1": {
-            "title": "Title",
+            "title": "My first Python Notebook",
             "content": "print(&quot;Hello, My name is Chinmay&quot;) . Hello, My name is Chinmay .",
-            "url": "https://chinmaydr.github.io/chinmay_fastpages/2022/08/23/chinmaynb.html",
-            "relUrl": "/2022/08/23/chinmaynb.html",
+            "url": "https://chinmaydr.github.io/chinmay_fastpages/hacks/2022/08/23/chinmaynb.html",
+            "relUrl": "/hacks/2022/08/23/chinmaynb.html",
             "date": " • Aug 23, 2022"
         }
         
