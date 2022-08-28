@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      15 min read
     
 </span></p>
 
@@ -150,6 +150,10 @@ git --version
 <span class="nb">echo</span> <span class="s2">&quot;Hack #2: Using anaconda to list all the tools&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;_________________________________________________________&quot;</span>
 conda list
+<span class="nb">echo</span> <span class="s2">&quot;_________________________________________________________&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Hack #3: Using git commands to update the repository&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;_________________________________________________________&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;use commands git add [filename], git commit[filename], and git push&quot;</span>
 </pre></div>
 
     </div>
@@ -614,6 +618,106 @@ zlib                      1.2.12               h7f8727e_2
 zope                      1.0              py39h06a4308_1  
 zope.interface            5.4.0            py39h7f8727e_0  
 zstd                      1.4.9                haebb681_0  
+_________________________________________________________
+Hack #3: Using git commands to update the repository
+_________________________________________________________
+use commands git add [filename], git commit[filename], and git push
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Automating python and java installation</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-bash"><pre><span></span><span class="nb">export</span> <span class="nv">password</span><span class="o">=</span>PASSWORD
+<span class="nb">echo</span> <span class="nv">$password</span>
+<span class="nb">echo</span> <span class="nv">$password</span> <span class="p">|</span> sudo -S apt update <span class="c1"># update package list</span>
+<span class="nb">echo</span> <span class="nv">$password</span> <span class="p">|</span> sudo -S apt upgrade <span class="c1"># upgrade packages</span>
+<span class="nb">echo</span> <span class="nv">$password</span> <span class="p">|</span> sudo -S apt install python2 <span class="c1"># install python2 for package dependencies</span>
+<span class="nb">echo</span> <span class="nv">$password</span> <span class="p">|</span> sudo -S apt install python3 python3-pip <span class="c1"># install python3 and pip3 for development</span>
+python --version  <span class="c1"># version of python3 should be shown</span>
+<span class="nb">echo</span> <span class="nv">$password</span> <span class="p">|</span> sudo -S apt install default-jdk default-jre  <span class="c1"># java install</span>
+java --version  <span class="c1"># java runtime version</span>
+javac --version <span class="c1"># java compiler version</span>
+sudo apt install unzip
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PASSWORD
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+9 packages can be upgraded. Run &#39;apt list --upgradable&#39; to see them.
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following packages will be upgraded:
+  base-files libxslt1.1 linux-libc-dev motd-news-config open-vm-tools
+  python-apt-common python3-apt python3-distupgrade
+  ubuntu-release-upgrader-core
+9 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+3 standard security updates
+Need to get 2263 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python2 is already the newest version (2.7.17-2ubuntu4).
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python3 is already the newest version (3.8.2-0ubuntu2).
+python3-pip is already the newest version (20.0.2-5ubuntu1.6).
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+Python 3.9.12
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+default-jdk is already the newest version (2:1.11-72).
+default-jre is already the newest version (2:1.11-72).
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+openjdk 11.0.16 2022-07-19
+OpenJDK Runtime Environment (build 11.0.16+8-post-Ubuntu-0ubuntu120.04)
+OpenJDK 64-Bit Server VM (build 11.0.16+8-post-Ubuntu-0ubuntu120.04, mixed mode, sharing)
+javac 11.0.16
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+unzip is already the newest version (6.0-25ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 </pre>
 </div>
 </div>
