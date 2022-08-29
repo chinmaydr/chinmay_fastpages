@@ -85,8 +85,8 @@
       ,"page2": {
           "title": "Gallery",
           "content": "This website is powered by fastpages 1. . . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
-          "url": "https://chinmaydr.github.io/chinmay_fastpages/about/",
-          "relUrl": "/about/",
+          "url": "https://chinmaydr.github.io/chinmay_fastpages/gallery/",
+          "relUrl": "/gallery/",
           "date": ""
       }
       
