@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Gallery
-permalink: /about/
+permalink: /gallery/
 ---
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
