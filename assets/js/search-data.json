@@ -72,6 +72,17 @@
 
   
       ,"page1": {
+          "title": "Science",
+          "content": "This website is powered by fastpages 1. . . Welcome to my science blog! . Here is where you’ll find all my science videos, coding projects, notes, and more! . Video on the Four Fundamental Forces: . Link . Video on Interstellar Travel: . Link . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "url": "https://chinmaydr.github.io/chinmay_fastpages/Science/",
+          "relUrl": "/Science/",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page2": {
           "title": "About Me",
           "content": "This website is powered by fastpages 1. . Hi Everyone! . ..* My name is Chinmay Diwakar Ramamurthy . ..* I go to Del Norte High School, and I’m in the AP CompSci Principles Class, but you all knew that . ..* I’m part of Del Norte’s robotics team, Team Optix#3749, where I am a member of the electrical team which manages all te wiring and the electrical system of the robot . ..* In my free time(I know right, what free time?) I like to code on my own, as well as read and write my own stories . So yeah! Welcome to my blog, and have fun reading the….like 3 pages I have . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://chinmaydr.github.io/chinmay_fastpages/about/",
@@ -82,7 +93,7 @@
   
 
   
-      ,"page2": {
+      ,"page3": {
           "title": "Gallery",
           "content": "This website is powered by fastpages 1. . . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://chinmaydr.github.io/chinmay_fastpages/gallery/",
@@ -114,7 +125,7 @@
   
 
   
-      ,"page11": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://chinmaydr.github.io/chinmay_fastpages/robots.txt",
