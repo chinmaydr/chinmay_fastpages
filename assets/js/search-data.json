@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Htmlhacks",
-            "content": "I switched my theme to the hacker theme(screenshot below) | Something I noticed was that my pages didn’t show up with this theme | so no matter how cool it looked, i couldn’t access my pages :( | .",
-            "url": "https://chinmaydr.github.io/chinmay_fastpages/2022/09/05/htmlhacks.html",
-            "relUrl": "/2022/09/05/htmlhacks.html",
+            "title": "An Example Markdown Post",
+            "content": "I switched my theme to the hacker theme(screenshot below) | Something I noticed was that my pages didn’t show up with this theme | so no matter how cool it looked, i couldn’t access my pages :( | Finally, i settled with dark mode | .",
+            "url": "https://chinmaydr.github.io/chinmay_fastpages/markdown/2022/09/05/htmlhacks.html",
+            "relUrl": "/markdown/2022/09/05/htmlhacks.html",
             "date": " • Sep 5, 2022"
         }
         
@@ -46,10 +46,10 @@
   
     
         ,"post4": {
-            "title": "Firstpost",
+            "title": "An Example Markdown Post",
             "content": "Hello! . See, I can do this stuff . Can you read this? .",
-            "url": "https://chinmaydr.github.io/chinmay_fastpages/2022/08/24/firstpost.html",
-            "relUrl": "/2022/08/24/firstpost.html",
+            "url": "https://chinmaydr.github.io/chinmay_fastpages/markdown/2022/08/24/firstpost.html",
+            "relUrl": "/markdown/2022/08/24/firstpost.html",
             "date": " • Aug 24, 2022"
         }
         
