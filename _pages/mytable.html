@@ -1,0 +1,40 @@
+---
+layout: page
+permalink: /table/
+title: My Table
+search_exclude: true
+---
+
+{% if site.tags.size > 0 %}
+<h2>Contents</h2>
+
+  {% assign tags = "" | split:"" %}
+  {% for c in site.tags %}
+    {% assign tags = tags | push: c[0] %}
+  {% endfor %}
+  {% assign tags = tags | sort_natural %}
+
+  <table>
+    <tr> 
+        <th>Week Number</th>
+        <th> Hacks </th>
+    </tr>
+  {% for tag in tags %}
+  <tr>
+    <td><a href="#{{ tag }}">{{ tag }}</a></td>
+    <td> 
+        {% for post in site.posts %}
+        {% if post.tags contains tag %}
+        <li>
+          {{ post.title }}
+          <span class="date"><b>|</b> {{ post.date | date: "%B %-d, %Y"  }}</span>
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+      {% endfor %}
+    </td>
+    </tr> 
+  </table>
+
+{% endif %}
