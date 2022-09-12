@@ -1,8 +1,8 @@
---
+---
 toc: true
 layout: post
 description: Ninjago Quiz
-categories: [Hacks]
+categories: [markdown]
 tags: [Week 3]
 title: Pseudocode App Ninjago Quiz
 ---
