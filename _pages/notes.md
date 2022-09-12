@@ -19,14 +19,22 @@ This website is powered by **[fastpages](https://github.com/fastai/fastpages)** 
 # Week 1
 ###    - Learned about bash
 ###       - created a bash notebook
-###       - learned baout verification with bash
+###       - learned about verification with bash
 ###       - completed the bash hacks to answer some basic bas questions
 ###    - Updated out blogs with cool new pages and cometics(LIKE THIS!!!)
 ###       - Made new pages
 ###       - Inserted images
 ###    - Made another python notebook
 ###       - Learned basic python syntax
-###       - created a program that would quiz the user and calclate the score
+###       - created a program that would quiz the user and calculate the score
+# Week 2
+- Learned about Html
+    - Changed blog theme
+    - created a table with tags to see the different posts
+- Expanded my python knowledge
+    - Leaned about dictionaries and lists
+    - learned about ways to iterate over lists and dictionaries
+        - while and for loops, recursion
 
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
