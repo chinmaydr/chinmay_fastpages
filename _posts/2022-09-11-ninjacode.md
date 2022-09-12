@@ -63,5 +63,6 @@ ELSE they chose wrongly, display a quick incorrect message with correct answer (
 ```After all three questions: move to the final screen```
 Has a button to reset
 displays the score of the player and the percent of the score
+[LINK](https://studio.code.org/projects/applab/LlWakhL2P7f-jI2JflQa_4TlxHW4L8whSy2gI4xX19g)
 
 <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/LlWakhL2P7f-jI2JflQa_4TlxHW4L8whSy2gI4xX19g"></iframe>
