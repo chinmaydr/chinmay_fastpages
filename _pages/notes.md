@@ -35,6 +35,12 @@ This website is powered by **[fastpages](https://github.com/fastai/fastpages)** 
     - Leaned about dictionaries and lists
     - learned about ways to iterate over lists and dictionaries
         - while and for loops, recursion
+# Week 3
+- Created accounts on Code.org
+    - made simple quiz with partner(Ninjago quiz with Varalu)
+    - Created plans for my own app(random movie review app)
+- Created a scrum board as a to-do list of all the things I need to complete
+- Created a sprint backlog table listing all of my study ideas and plans
 
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
