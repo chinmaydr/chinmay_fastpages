@@ -1,3 +1,12 @@
+---
+layout: page
+title: APCSP Big Idea 2 - Program Purpose and Function Notes
+toc: true
+permalink: /idea1.2/
+categories: [hacks]
+tags: [Week 5]
+description: notes on the AP Classroom video plus personal ideas
+---
 # 1.2 video 1:
 - Lots of different computing innovations
 - guiding questions(social media):  
