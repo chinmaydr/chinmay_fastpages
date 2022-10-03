@@ -46,3 +46,4 @@ title: 1.3 Program Design
 - comment blocks in scratch can be minimized
 # Proof of quiz completion:
 ![image](https://user-images.githubusercontent.com/68085673/193479538-8d1585aa-8475-40e9-8672-c1de12022cff.png)
+https://azeem-khan1.github.io/fastpages-project/hacks/programdesign_1-3#other-hacks
