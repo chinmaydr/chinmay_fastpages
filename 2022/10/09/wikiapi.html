@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Python API for wikipedia | The Chinmay Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Python API for wikipedia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I built an API for Wikipedia to use in our scrum project. We can use the API to get data from pages to insert notes and summaries into the academic organizer" />
+<meta property="og:description" content="I built an API for Wikipedia to use in our scrum project. We can use the API to get data from pages to insert notes and summaries into the academic organizer" />
+<link rel="canonical" href="https://chinmaydr.github.io/chinmay_fastpages/2022/10/09/wikiapi.html" />
+<meta property="og:url" content="https://chinmaydr.github.io/chinmay_fastpages/2022/10/09/wikiapi.html" />
+<meta property="og:site_name" content="The Chinmay Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-09T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Python API for wikipedia" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-09T00:00:00-05:00","datePublished":"2022-10-09T00:00:00-05:00","description":"I built an API for Wikipedia to use in our scrum project. We can use the API to get data from pages to insert notes and summaries into the academic organizer","headline":"Python API for wikipedia","mainEntityOfPage":{"@type":"WebPage","@id":"https://chinmaydr.github.io/chinmay_fastpages/2022/10/09/wikiapi.html"},"url":"https://chinmaydr.github.io/chinmay_fastpages/2022/10/09/wikiapi.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chinmay_fastpages/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://chinmaydr.github.io/chinmay_fastpages/feed.xml" title="The Chinmay Blog" /><link rel="shortcut icon" type="image/x-icon" href="/chinmay_fastpages/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chinmay_fastpages/">The Chinmay Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chinmay_fastpages/posts/2022-10-02-AWShacksmd">ASW Hacks</a><a class="page-link" href="/chinmay_fastpages/Science/">Science</a><a class="page-link" href="/chinmay_fastpages/about/">About Me</a><a class="page-link" href="/chinmay_fastpages/frontend/">Frontend</a><a class="page-link" href="/chinmay_fastpages/gallery/">Gallery</a><a class="page-link" href="/chinmay_fastpages/table/">My Table</a><a class="page-link" href="/chinmay_fastpages/notes/">Notes</a><a class="page-link" href="/chinmay_fastpages/search/">Search</a><a class="page-link" href="/chinmay_fastpages/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python API for wikipedia</h1><p class="page-description">I built an API for Wikipedia to use in our scrum project. We can use the API to get data from pages to insert notes and summaries into the academic organizer</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-09T00:00:00-05:00" itemprop="datePublished">
+        Oct 9, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/chinmaydr/chinmay_fastpages/tree/master/_notebooks/2022-10-09-wikiapi.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/chinmaydr/chinmay_fastpages/master?filepath=_notebooks%2F2022-10-09-wikiapi.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/chinmaydr/chinmay_fastpages/blob/master/_notebooks/2022-10-09-wikiapi.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fchinmaydr%2Fchinmay_fastpages%2Fblob%2Fmaster%2F_notebooks%2F2022-10-09-wikiapi.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-09-wikiapi.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">wikipediaapi</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wiki_wiki</span> <span class="o">=</span> <span class="n">wikipediaapi</span><span class="o">.</span><span class="n">Wikipedia</span><span class="p">(</span><span class="s1">'en'</span><span class="p">)</span>
+
+<span class="n">page_py</span> <span class="o">=</span> <span class="n">wiki_wiki</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">'Python_(programming_language)'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">page_py</span> <span class="o">=</span> <span class="n">wiki_wiki</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">'Python_(programming_language)'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Exists: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">page_py</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+<span class="c1"># Page - Exists: True</span>
+
+<span class="n">page_ele</span> <span class="o">=</span> <span class="n">wiki_wiki</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">'Elephant'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Exists: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>     <span class="n">page_ele</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+
+<span class="n">page_john</span> <span class="o">=</span> <span class="n">wiki_wiki</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">'John Cena'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Exists: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>     <span class="n">page_john</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+
+<span class="n">page_missing</span> <span class="o">=</span> <span class="n">wiki_wiki</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">'dfhjhjkgdsjhkfs'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Exists: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>     <span class="n">page_missing</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Page - Exists: True
+Page - Exists: True
+Page - Exists: True
+Page - Exists: False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wiki_wiki</span> <span class="o">=</span> <span class="n">wikipediaapi</span><span class="o">.</span><span class="n">Wikipedia</span><span class="p">(</span><span class="s1">'en'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Title: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">page_john</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="c1"># Page - Title: Python (programming language)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page - Summary: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">page_john</span><span class="o">.</span><span class="n">summary</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>
+<span class="c1"># Page - Summary: Python is a widely used high-level programming language for</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Page - Title: John Cena
+Page - Summary: John Felix Anthony Cena ( SEE-nə; born April 23, 1977) is an American professional wrestler, actor, and former rapper. He is currently signed to WWE. Widely regarded as one of the greatest professional wrestlers of all time, he is tied with Ric Flair for the most world championship reigns in professional wrestling history.Cena moved to California in 1998 to pursue a career as a bodybuilder, and switched to professional wrestling in 1999 before making his debut for Ultimate Pro Wrestling (UPW). He signed with the World Wrestling Federation (WWF, now WWE) in 2001 and was assigned to Ohio Valley Wrestling (OVW), its developmental territory. After moving to WWE's SmackDown roster in 2002, Cena gained fame and success after adopting the character of a trash-talking rapper. He won his first singles title, the United States Championship, in 2004. The next year, he won the WWE Championship, and his character soon changed into a clean-cut and heroic one. He led the company as its franchise play
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">page_john</span><span class="o">.</span><span class="n">fullurl</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>https://en.wikipedia.org/wiki/John_Cena
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">page_john</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">page_john</span><span class="o">.</span><span class="n">categories</span><span class="p">[</span><span class="n">title</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Category:1977 births: Category:1977 births (id: ??, ns: 14)
+Category:21st-century American male actors: Category:21st-century American male actors (id: ??, ns: 14)
+Category:21st-century American male musicians: Category:21st-century American male musicians (id: ??, ns: 14)
+Category:21st-century American rappers: Category:21st-century American rappers (id: ??, ns: 14)
+Category:21st-century professional wrestlers: Category:21st-century professional wrestlers (id: ??, ns: 14)
+Category:All Wikipedia articles written in American English: Category:All Wikipedia articles written in American English (id: ??, ns: 14)
+Category:All articles with unsourced statements: Category:All articles with unsourced statements (id: ??, ns: 14)
+Category:American car collectors: Category:American car collectors (id: ??, ns: 14)
+Category:American football offensive linemen: Category:American football offensive linemen (id: ??, ns: 14)
+Category:American game show hosts: Category:American game show hosts (id: ??, ns: 14)
+Category:American male film actors: Category:American male film actors (id: ??, ns: 14)
+Category:American male professional wrestlers: Category:American male professional wrestlers (id: ??, ns: 14)
+Category:American male rappers: Category:American male rappers (id: ??, ns: 14)
+Category:American male television actors: Category:American male television actors (id: ??, ns: 14)
+Category:American male voice actors: Category:American male voice actors (id: ??, ns: 14)
+Category:American people of English descent: Category:American people of English descent (id: ??, ns: 14)
+Category:American people of French-Canadian descent: Category:American people of French-Canadian descent (id: ??, ns: 14)
+Category:American philanthropists: Category:American philanthropists (id: ??, ns: 14)
+Category:American professional wrestlers of Italian descent: Category:American professional wrestlers of Italian descent (id: ??, ns: 14)
+Category:American sportspeople of Italian descent: Category:American sportspeople of Italian descent (id: ??, ns: 14)
+Category:American television hosts: Category:American television hosts (id: ??, ns: 14)
+Category:Articles with BIBSYS identifiers: Category:Articles with BIBSYS identifiers (id: ??, ns: 14)
+Category:Articles with BNE identifiers: Category:Articles with BNE identifiers (id: ??, ns: 14)
+Category:Articles with BNF identifiers: Category:Articles with BNF identifiers (id: ??, ns: 14)
+Category:Articles with FAST identifiers: Category:Articles with FAST identifiers (id: ??, ns: 14)
+Category:Articles with GND identifiers: Category:Articles with GND identifiers (id: ??, ns: 14)
+Category:Articles with ISNI identifiers: Category:Articles with ISNI identifiers (id: ??, ns: 14)
+Category:Articles with J9U identifiers: Category:Articles with J9U identifiers (id: ??, ns: 14)
+Category:Articles with LCCN identifiers: Category:Articles with LCCN identifiers (id: ??, ns: 14)
+Category:Articles with MusicBrainz identifiers: Category:Articles with MusicBrainz identifiers (id: ??, ns: 14)
+Category:Articles with NKC identifiers: Category:Articles with NKC identifiers (id: ??, ns: 14)
+Category:Articles with NLK identifiers: Category:Articles with NLK identifiers (id: ??, ns: 14)
+Category:Articles with NTA identifiers: Category:Articles with NTA identifiers (id: ??, ns: 14)
+Category:Articles with PLWABN identifiers: Category:Articles with PLWABN identifiers (id: ??, ns: 14)
+Category:Articles with RERO identifiers: Category:Articles with RERO identifiers (id: ??, ns: 14)
+Category:Articles with SUDOC identifiers: Category:Articles with SUDOC identifiers (id: ??, ns: 14)
+Category:Articles with VIAF identifiers: Category:Articles with VIAF identifiers (id: ??, ns: 14)
+Category:Articles with WORLDCATID identifiers: Category:Articles with WORLDCATID identifiers (id: ??, ns: 14)
+Category:Articles with hCards: Category:Articles with hCards (id: ??, ns: 14)
+Category:Articles with short description: Category:Articles with short description (id: ??, ns: 14)
+Category:Articles with unsourced statements from April 2022: Category:Articles with unsourced statements from April 2022 (id: ??, ns: 14)
+Category:Articles with unsourced statements from February 2017: Category:Articles with unsourced statements from February 2017 (id: ??, ns: 14)
+Category:Articles with unsourced statements from March 2019: Category:Articles with unsourced statements from March 2019 (id: ??, ns: 14)
+Category:Articles with unsourced statements from May 2021: Category:Articles with unsourced statements from May 2021 (id: ??, ns: 14)
+Category:Articles with unsourced statements from October 2018: Category:Articles with unsourced statements from October 2018 (id: ??, ns: 14)
+Category:CS1 Spanish-language sources (es): Category:CS1 Spanish-language sources (es) (id: ??, ns: 14)
+Category:Catholics from Florida: Category:Catholics from Florida (id: ??, ns: 14)
+Category:Catholics from Massachusetts: Category:Catholics from Massachusetts (id: ??, ns: 14)
+Category:Charity fundraisers (people): Category:Charity fundraisers (people) (id: ??, ns: 14)
+Category:Childfree: Category:Childfree (id: ??, ns: 14)
+Category:Columbia Records artists: Category:Columbia Records artists (id: ??, ns: 14)
+Category:Commons category link is on Wikidata: Category:Commons category link is on Wikidata (id: ??, ns: 14)
+Category:East Coast hip hop musicians: Category:East Coast hip hop musicians (id: ??, ns: 14)
+Category:Exercise physiologists: Category:Exercise physiologists (id: ??, ns: 14)
+Category:Internet memes: Category:Internet memes (id: ??, ns: 14)
+Category:Living people: Category:Living people (id: ??, ns: 14)
+Category:Male actors from Massachusetts: Category:Male actors from Massachusetts (id: ??, ns: 14)
+Category:Male actors from Tampa, Florida: Category:Male actors from Tampa, Florida (id: ??, ns: 14)
+Category:Musicians from Tampa, Florida: Category:Musicians from Tampa, Florida (id: ??, ns: 14)
+Category:NWA/WCW/WWE United States Heavyweight Champions: Category:NWA/WCW/WWE United States Heavyweight Champions (id: ??, ns: 14)
+Category:OVW Heavyweight Champions: Category:OVW Heavyweight Champions (id: ??, ns: 14)
+Category:Pages using embedded infobox templates with the title parameter: Category:Pages using embedded infobox templates with the title parameter (id: ??, ns: 14)
+Category:Pages using infobox musical artist with associated acts: Category:Pages using infobox musical artist with associated acts (id: ??, ns: 14)
+Category:Pages using infobox person with multiple spouses: Category:Pages using infobox person with multiple spouses (id: ??, ns: 14)
+Category:People from Land o' Lakes, Florida: Category:People from Land o' Lakes, Florida (id: ??, ns: 14)
+Category:People from West Newbury, Massachusetts: Category:People from West Newbury, Massachusetts (id: ??, ns: 14)
+Category:Players of American football from Massachusetts: Category:Players of American football from Massachusetts (id: ??, ns: 14)
+Category:Pop rappers: Category:Pop rappers (id: ??, ns: 14)
+Category:Professional wrestlers from Florida: Category:Professional wrestlers from Florida (id: ??, ns: 14)
+Category:Professional wrestlers from Massachusetts: Category:Professional wrestlers from Massachusetts (id: ??, ns: 14)
+Category:Rappers from Florida: Category:Rappers from Florida (id: ??, ns: 14)
+Category:Rappers from Massachusetts: Category:Rappers from Massachusetts (id: ??, ns: 14)
+Category:Short description matches Wikidata: Category:Short description matches Wikidata (id: ??, ns: 14)
+Category:Spokespersons: Category:Spokespersons (id: ??, ns: 14)
+Category:Sportspeople from Essex County, Massachusetts: Category:Sportspeople from Essex County, Massachusetts (id: ??, ns: 14)
+Category:Sportspeople from Tampa, Florida: Category:Sportspeople from Tampa, Florida (id: ??, ns: 14)
+Category:Springfield College (Massachusetts) alumni: Category:Springfield College (Massachusetts) alumni (id: ??, ns: 14)
+Category:Springfield Pride football players: Category:Springfield Pride football players (id: ??, ns: 14)
+Category:Television personalities from Florida: Category:Television personalities from Florida (id: ??, ns: 14)
+Category:Television producers from Florida: Category:Television producers from Florida (id: ??, ns: 14)
+Category:Television producers from Massachusetts: Category:Television producers from Massachusetts (id: ??, ns: 14)
+Category:Use American English from October 2019: Category:Use American English from October 2019 (id: ??, ns: 14)
+Category:Use mdy dates from February 2022: Category:Use mdy dates from February 2022 (id: ??, ns: 14)
+Category:WWE Champions: Category:WWE Champions (id: ??, ns: 14)
+Category:Wikipedia articles needing clarification from May 2020: Category:Wikipedia articles needing clarification from May 2020 (id: ??, ns: 14)
+Category:Wikipedia indefinitely move-protected pages: Category:Wikipedia indefinitely move-protected pages (id: ??, ns: 14)
+Category:Wikipedia indefinitely semi-protected biographies of living people: Category:Wikipedia indefinitely semi-protected biographies of living people (id: ??, ns: 14)
+Category:World Heavyweight Champions (WWE): Category:World Heavyweight Champions (WWE) (id: ??, ns: 14)
+Category:Wrestling Observer Newsletter award winners: Category:Wrestling Observer Newsletter award winners (id: ??, ns: 14)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">page_john</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2"> - </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>*: Early life - John Felix Anthony Cena was born in West Newbury, Massachusetts, on April 23, 1977, the son of Carol
+*: Professional wrestling career - 
+*: Professional wrestling style and persona - 
+*: Acting career - 
+*: Music career - In addition to his wrestling career, Cena is a rapper. He performed his fifth WWE theme song, "Basic
+*: Other ventures - 
+*: In popular culture - His catchphrase "You Can't See Me" originates from his early days of wrestling in the WWE where he w
+*: Personal life - Cena resides in Land o' Lakes, Florida.He has said numerous times that he does not want to have chil
+*: Filmography - 
+*: Awards and nominations - 
+*: Championships and accomplishments - 
+*: Notes - 
+*: References - 
+*: External links - 
+John Cena on WWE.com 
+John Cena at IMDb 
+John Cena on Twitter 
+John Cena's profile at Cagematch.net
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/chinmay_fastpages/2022/10/09/wikiapi.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chinmay_fastpages/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chinmay_fastpages/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chinmay_fastpages/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/chinmay_fastpages/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/chinmay_fastpages/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
