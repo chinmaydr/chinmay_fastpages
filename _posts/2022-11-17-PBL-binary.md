@@ -12,6 +12,9 @@ description: Exam + N@TM Thoughts
 <!-- Hack 2: change to 24 bits and add a color code and display color when 24 bits, think about display on this one -->
 <!-- Hack 3: do your own thing -->
 
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+
 {% assign BITS = 10 %}
 
 <div class="container bg-primary">
