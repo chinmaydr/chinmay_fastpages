@@ -1,21 +1,19 @@
 ---
-layout: page
-title: Binary
 toc: true
-permalink: /bin/
-categories: [hacks]
+layout: post
+description: Binary
+categories: [Hacks]
 tags: [Week 13]
-description: Exam + N@TM Thoughts
+image: images/binary.png
+title: Binary hacks 
+permalink: /posts/binary
 ---
 
 <!-- Hack 1: add a character display to text when 8 bits, determine if printable or not printable -->
 <!-- Hack 2: change to 24 bits and add a color code and display color when 24 bits, think about display on this one -->
 <!-- Hack 3: do your own thing -->
 
-<form action="/action_page.php">
-  <label for="fname">First name:</label>
-
-{% assign BITS = 10 %}
+{% assign BITS = 20 %}
 
 <div class="container bg-primary">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
@@ -28,16 +26,22 @@ description: Exam + N@TM Thoughts
                 <th>Plus</th>
                 <th>Binary</th>
                 <th>Octal</th>
+                <th>Base 5</th>
+                <th>Base 11</th>
                 <th>Hexadecimal</th>
                 <th>Decimal</th>
+                <th>Character</th>
                 <th>Minus</th>
             </tr>
             <tr>
                 <td><button type="button" id="add1" onclick="add(1)">+1</button></td>
                 <td id="binary">00000000</td>
                 <td id="octal">0</td>
+                <td id="base 5">0</td>
+                <td id="base 11">0</td>
                 <td id="hexadecimal">0</td>
                 <td id="decimal">0</td>
+                <td id="Character">nil</td>
                 <td><button type="button" id="sub1" onclick="add(-1)">-1</button></td>
             </tr>
             </table>
@@ -60,6 +64,12 @@ description: Exam + N@TM Thoughts
                 <td><input type='text' id="digit{{ i }}" Value="0" size="1" readonly></td>
                 {% endfor %}
             </tr>
+            <tr>
+                {% comment %}Value of bit{% endcomment %}
+                {% for i in (0..bits) %}
+                <td><input type='text' id="digit2{{ i }}" Value="0" size="1" readonly></td>
+                {% endfor %}
+            </tr>
             </table>
         </div>
     </div>
@@ -67,7 +77,7 @@ description: Exam + N@TM Thoughts
 
 <script>
     const BITS = {{ BITS }};
-    const MAX = 2 ** BITS - 1;
+    const MAX = 2 ** (BITS - 1);
     const MSG_ON = "Turn on";
     const IMAGE_ON = "{{site.baseurl}}/images/bulb_on.gif";
     const MSG_OFF = "Turn off";
@@ -81,15 +91,30 @@ description: Exam + N@TM Thoughts
         }
         return bits;
     }
+
+    function determinePrintable(binary){
+        let decimal = parseInt(binary, 2);
+        if (decimal < 97){ return "Not printable" }
+        console.log(String.fromCharCode(parseInt(binary, 2)));
+        return String.fromCharCode(parseInt(binary, 2));
+    }
+
     // setter for DOM values
     function setConversions(binary) {
+        let decimal = parseInt(binary, 2);
+        console.log(String.fromCharCode(parseInt(binary, 2)));
         document.getElementById('binary').innerHTML = binary;
         // Octal conversion
         document.getElementById('octal').innerHTML = parseInt(binary, 2).toString(8);
+        document.getElementById('base 5').innerHTML = parseInt(binary, 2).toString(5);
+        document.getElementById('base 11').innerHTML = parseInt(binary, 2).toString(11);
         // Hexadecimal conversion
         document.getElementById('hexadecimal').innerHTML = parseInt(binary, 2).toString(16);
+        //document.getElementById('binary').style.color = "#"+parseInt(binary, 2).toString(16);
         // Decimal conversion
-        document.getElementById('decimal').innerHTML = parseInt(binary, 2).toString();
+        document.getElementById('decimal').innerHTML = decimal.toString();
+        // Character conversion
+        document.getElementById('Character').innerHTML = determinePrintable(binary);
     }
     //
     function decimal_2_base(decimal, base) {
@@ -113,15 +138,18 @@ description: Exam + N@TM Thoughts
     function toggleBit(i) {
         //alert("Digit action: " + i );
         const dig = document.getElementById('digit' + i);
+        const dig2 = document.getElementById('digit2' + i);
         const image = document.getElementById('bulb' + i);
         const butt = document.getElementById('butt' + i);
         // Change digit and visual
         if (image.src.match(IMAGE_ON)) {
         dig.value = 0;
+        dig2.value = 0;
         image.src = IMAGE_OFF;
         butt.innerHTML = MSG_ON;
         } else {
-        dig.value = 2**(BITS-i-1);
+        dig.value = 1;
+        dig2.value = 2**(BITS-i-1);
         image.src = IMAGE_ON;
         butt.innerHTML = MSG_OFF;
         }
