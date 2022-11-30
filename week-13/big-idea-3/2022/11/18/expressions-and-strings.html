@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -290,20 +290,55 @@ Hint: use the MOD operator (a % b) to find the remainder when a is divided by b.
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">dec</span><span class="p">):</span>
-    <span class="nb">bin</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="nb">pow</span> <span class="o">=</span> <span class="mi">8</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">dec</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">**</span><span class="nb">pow</span><span class="p">:</span>
-            <span class="nb">bin</span> <span class="o">+=</span> <span class="s2">"1"</span>
-            <span class="n">dec</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="nb">pow</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">takeinput</span><span class="p">(</span><span class="n">ct</span><span class="p">):</span>
+    <span class="n">numtype</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">ct</span><span class="o">+</span><span class="s2">": int or bin?"</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">ct</span><span class="o">+</span><span class="s2">": please enter your number"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">numtype</span> <span class="o">==</span> <span class="s2">"int"</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num</span>
+<span class="k">def</span> <span class="nf">bintoint</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">ct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">:</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">**</span><span class="n">ct</span>
+        <span class="n">ct</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ans</span>
+<span class="k">def</span> <span class="nf">inttobin</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">ct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">ct</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">):</span>
+        <span class="n">ct</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">ct</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">ct</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">**</span><span class="n">ct</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">**</span><span class="n">ct</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="s2">"1"</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">bin</span> <span class="o">+=</span> <span class="s2">"0"</span>
-        <span class="nb">pow</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="nb">bin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"0"</span><span class="p">:</span>
-        <span class="nb">bin</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">)]</span>
-    <span class="k">return</span> <span class="nb">bin</span>
-<span class="n">convert</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="s2">"0"</span>
+        <span class="n">ct</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ans</span>
+<span class="n">num1</span> <span class="o">=</span> <span class="n">takeinput</span><span class="p">(</span><span class="s2">"1"</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="n">takeinput</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"a"</span><span class="p">):</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="n">bintoint</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="s2">"a"</span><span class="p">):</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="n">bintoint</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"decimal sum: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"binary sum: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"decimal difference: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="o">-</span><span class="n">num2</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">num1</span> <span class="o">&gt;=</span> <span class="n">num2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"binary difference: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num1</span><span class="o">-</span><span class="n">num2</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"binary difference: -"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num2</span><span class="o">-</span><span class="n">num1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"decimal product: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="o">*</span><span class="n">num2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"binary product: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num1</span><span class="o">*</span><span class="n">num2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"decimal quotient: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="o">//</span><span class="n">num2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"binary quotient: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num1</span><span class="o">//</span><span class="n">num2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"decimal remainder: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1</span><span class="o">%</span><span class="k">num2</span>))
+<span class="nb">print</span><span class="p">(</span><span class="s2">"binary remainder: "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">inttobin</span><span class="p">(</span><span class="n">num1</span><span class="o">%</span><span class="k">num2</span>)))
 </pre></div>
 
     </div>
