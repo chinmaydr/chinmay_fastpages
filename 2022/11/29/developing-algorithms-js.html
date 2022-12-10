@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -350,9 +350,33 @@ The following are the steps to determine the network that an IP address is in gi
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-javascript"><pre><span></span><span class="nx">ip</span> <span class="o">=</span> <span class="s2">"192.168.0.1"</span>
-<span class="nx">mask</span> <span class="o">=</span> <span class="s2">"255.255.255.0"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ip</span><span class="p">)</span>
+<div class=" highlight hl-javascript"><pre><span></span><span class="c1">// Wasn't able to finish, here is the start.</span>
+<span class="kd">function</span> <span class="nx">Address</span><span class="p">(</span><span class="nx">ipAddress</span><span class="p">,</span> <span class="nx">subnetMask</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">binaryIpAddress</span> <span class="o">=</span> <span class="nx">Binary</span><span class="p">(</span><span class="nx">ipAddress</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">binarySubnetMask</span> <span class="o">=</span> <span class="nx">Binary</span><span class="p">(</span><span class="nx">subnetMask</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">networkAddressBinary</span> <span class="o">=</span> <span class="nx">binaryIpAddress</span> <span class="o">&amp;</span> <span class="nx">binarySubnetMask</span><span class="p">;</span>
+  
+    <span class="kd">var</span> <span class="nx">networkAddress</span> <span class="o">=</span> <span class="nx">Decimal</span><span class="p">(</span><span class="nx">networkAddressBinary</span><span class="p">);</span>
+  
+    <span class="k">return</span> <span class="nx">networkAddress</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="kd">function</span> <span class="nx">Decimal</span><span class="p">(</span><span class="nx">binary</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">binaryOctets</span> <span class="o">=</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/.{1,8}/g</span><span class="p">);</span>
+  
+    <span class="kd">var</span> <span class="nx">octets</span> <span class="o">=</span> <span class="nx">binaryOctets</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">binaryOctet</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">binaryOctet</span><span class="p">,</span> <span class="mf">2</span><span class="p">);</span>
+    <span class="p">});</span>
+  
+    <span class="k">return</span> <span class="nx">octets</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"."</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="kd">var</span> <span class="nx">ipAddress</span> <span class="o">=</span> <span class="s2">"192.168.0.1"</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">subnetMask</span> <span class="o">=</span> <span class="s2">"255.255.255.0"</span><span class="p">;</span>
+  
+  <span class="kd">var</span> <span class="nx">networkAddress</span> <span class="o">=</span> <span class="nx">Address</span><span class="p">(</span><span class="nx">ipAddress</span><span class="p">,</span> <span class="nx">subnetMask</span><span class="p">);</span>
+  
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">networkAddress</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -364,9 +388,23 @@ The following are the steps to determine the network that an IP address is in gi
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>192.168.0.we1
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+evalmachine.&lt;anonymous&gt;:21
+    var binaryOctets = binary.match(/.{1,8}/g);
+                              ^
+
+TypeError: binary.match is not a function
+    at Decimal (evalmachine.&lt;anonymous&gt;:21:31)
+    at computeNetworkAddress (evalmachine.&lt;anonymous&gt;:6:26)
+    at evalmachine.&lt;anonymous&gt;:33:24
+    at ContextifyScript.Script.runInThisContext (vm.js:25:33)
+    at Object.runInThisContext (vm.js:97:38)
+    at run ([eval]:1020:15)
+    at onRunRequest ([eval]:864:18)
+    at onMessage ([eval]:828:13)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:191:7)</pre>
 </div>
 </div>
 
