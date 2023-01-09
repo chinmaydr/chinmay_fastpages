@@ -5,6 +5,7 @@ description: My CPT example project scoring
 categories: [extra]
 title: CPT Submission Scoring: Example
 comments: true
+permalink: /cptgrade/
 ---
 
 ## 1:
