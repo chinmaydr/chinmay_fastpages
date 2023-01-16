@@ -1,10 +1,11 @@
 ---
+layout: page
+title: CPT grading - Example
 toc: true
-layout: post
-description: My CPT example project scoring
-categories: [extra]
-title: CPT Submission Scoring: Example
-comments: true
+permalink: /cptgrade/
+categories: [hacks]
+tags: [Week 4]
+description: cpt example grading
 ---
 
 ## 1:
