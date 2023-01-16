@@ -8,6 +8,7 @@ title: CPT Scoring 2
 permalink: /posts/cpt2
 ---
 # Submission 1
+
 |Category|My Score|Collegeboard Score|Comments|
 |--------|--------|------------------|--------|
 |Program purpose and function| 0 | 0 | While a brief description was given for the function, no clear purpose was defined |
@@ -20,6 +21,7 @@ permalink: /posts/cpt2
 Descrepencies: None
 
 # Submission 2
+
 |Category|My Score|Collegeboard Score|Comments|
 |--------|--------|------------------|--------|
 |Program purpose and function| 1 | 1 | A throrough explanation of the program purpose and function with all the required parts is present |
@@ -32,6 +34,7 @@ Descrepencies: None
 Descrepencies: I gave the Algorithm implementation a 0, as collegeboard gave it a 1. This is because I assumed iteration through a small list would be considered trivial, but apparently now  I know 3 is an okay number for useful iteration.
 
 # Submission 3
+
 |Category|My Score|Collegeboard Score|Comments|
 |--------|--------|------------------|--------|
 |Program purpose and function| 1 | 0 | The purpose was good, but the function of the program, while elaborated later on in the written response, was not included in that section |
@@ -44,6 +47,7 @@ Descrepencies: I gave the Algorithm implementation a 0, as collegeboard gave it 
 Descrepencies: I gave a 1 while collegeboard gacve a 0 on program purpose and funtion, as I initially thought the purpose statement was good, but forgot to look at the function part, which wasn't as stellar. For Procedural abstraction and algorithm implementation, I gave a 0 while collegeboard gave a 1. As a coder with a bit of a more algorithmic background, I was probably expecting a little bit more than the scope of the course from the people I graded.
 
 # Submission 4
+
 |Category|My Score|Collegeboard Score|Comments|
 |--------|--------|------------------|--------|
 |Program purpose and function| 0 | 1 | The program purpose given seemed more like a program function, and didn't really show the problem or creative intent |
@@ -56,6 +60,7 @@ Descrepencies: I gave a 1 while collegeboard gacve a 0 on program purpose and fu
 Descrepencies: I gave a 0 as collegeboard gave a 1 for program purpose and function. This was becuase I thought that the purpose sounded like a function, but collegeboard didn't think so. In addition, I thought the testing was bad but passable, but collegeboard said it was a zero.
 
 # Reflection:
+
 Notes for my own create performance task
 - Don't put as much emphasis on the Algorithmic implementation, and focus more on the abstraction
 - Be sure to explain each section well in an easy to read format for the graders
