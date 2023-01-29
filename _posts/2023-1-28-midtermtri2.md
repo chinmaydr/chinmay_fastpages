@@ -1,10 +1,10 @@
 ---
 toc: true
 layout: post
-description: Week 19 Trimester 2 Midterm Exam
+description: Week 20 Trimester 2 Midterm Exam
 categories: [Hacks]
-tags: [Week 19]
-title: Week 19 Trimester 2 Midterm Exam
+tags: [Week 20]
+title: Week 20 Trimester 2 Midterm Exam
 permalink: /posts/tri2mid
 ---
 
