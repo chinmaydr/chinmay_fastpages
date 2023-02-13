@@ -119,3 +119,36 @@ permalink: /posts/516
 ## Summary:
 Computing bias is usually not intentional, but often it can lead to harmful results, even if unintended by the creator. If it is intended, people need to be wary of it and make sure not to get caught in a trap of falling for the website's tricks. An exxample I can think of for the first case is google translate. Often, in languages without gender specific pronouns, it will stereotype the sentence based of common gender stereotypes, rather than including both male and female pronouns. For example, if you enter, "He/She is a firefighter" in a nother language, it will return "He is a firefighter", but it would return she if you said maid or something similar.
 
+# 5.4 Crowdsourcing
+## Crossover Group Up:
+1. I used a wikipedia API that I found from the interned for my Scrum project from trimester 1. Our group used this API to get data for our academic organizer. We were able to get data from wikipedia to display it on the website. Our group also used a memes api from RapidApi for one of the assignments during the first trimester, to get memes from. I've also created 2 different kinds of APIs for countries, one with infor for each country, and another which was just a list of countries. Lastly, I've used a couple of APIs in non-school projects.
+2. The biggest discovery that I have made in github is looking at the commit history of both my classmates and both Mr. Yeung and Mr. Mort. I found out how hard different friends work, and what results that leads to, including exploring what work that others do to achieve their grades, helping me understand what is really required to get a certain score.
+  
+## Hacks:
+1. A crowdsource idea is to survey all of the APCSP students on their opinion of the class, what they could do better, and general questions on how they are doing for the PBL project.
+2. I don't believe that my project specifically can benefit from crowdsourcing, as it is just a game, and doesn't need user data. However, the arcade as a whole may be able to get a review, or a leaderboard ranking, and somehow implement crowdsourcing that way.
+3. At N@TM, I plan to send a google form to each one of the people who come and take a look at our project, and get a review, as well as project glows and grows, to change over the next week before the final submission
+
+# 5.5
+## Blog Post Reflection:
+1. - The use of GPL (General Public Licensing) software can void the rights to charge for patents and software. 
+   - Qualcomm, a company that makes money on patents, has lawyers analyzing all code produced to ensure compliance with licenses and to protect their ability to charge royalties.
+   - An author needs to determine a license when adding or selecting one on GitHub. Creative Commons Zero v1.0 Universal waives copyright, while the MIT License allows the use of code freely but requires credit to the author. \
+   - The GPL License lets people do almost anything with the project, but distributing closed source versions is not allowed.
+   - Companies must comply with the terms of licenses and cite sources. 
+   - Creative Commons software is free but individuals and companies must figure out techniques and business models to use it according to the license.
+   - Red Hat is an example of a company that gave away its Linux distribution under GPL license, but established a business model around buying support agreements. 
+   - Qualcomm figured out how to mix Patent and GPL businesses.
+   - Creative Commons and Open Source are free terminologies but businesses need income to survive.
+2. I think that it's good that people can claim a right to their own IP, and prevent others from using it without credit/permission. However, liscenses can often prevent others from creating truly amazing things, that in no way mean to claim the original creator's work as their own.
+3. License: MIT License
+
+Copyright (c) [2023] [GamesArcade]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# 5.6 
