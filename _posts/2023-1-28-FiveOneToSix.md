@@ -151,4 +151,12 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# 5.6 
+# 5.6 Safe Computing
+## Blog Post Reflection:
+1. Any kind of personal information that you probably dont want to be on the internet, like name, adress, birthday, SSN, IP adress, or more can be considered PII. PII specific to APCSP is whenever we had to write our names or other information in the beginning of the class, or anything from github, because so much information about a person can be found on github.
+2. I think that PII is important for a person to keep safe, or else if others find it, it can get a person into big trouble or in danger.
+3. Good Password: %^&*GYGYTGycjhyeyg
+   Bad Password: Chinmay123
+   other authentification steps are PATs, I am not a robot, and forgot password questions.
+4. Symmetric encryption is when all words have the same decryption key, while assymetric encryption is when each code has a different decryption key.
+5. Encryption in AWS deployment is using SSH keys.
