@@ -81,7 +81,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      8 min read
     
 </span></p>
 
@@ -122,10 +122,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Database-Programming-is-Program-with-Data">Database Programming is Program with Data </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Schema-of-Users-table-in-Sqlite.db">Schema of Users table in Sqlite.db </a></li>
-<li class="toc-entry toc-h2"><a href="#Describe-Schema,-here-is-resource-Resource--What-is-a-database-schema?">Describe Schema, here is resource Resource- What is a database schema? </a></li>
 <li class="toc-entry toc-h2"><a href="#Reading-Users-table-in-Sqlite.db">Reading Users table in Sqlite.db </a></li>
 <li class="toc-entry toc-h2"><a href="#Create-a-new-User-in-table-in-Sqlite.db">Create a new User in table in Sqlite.db </a></li>
-<li class="toc-entry toc-h2"><a href="#---Compore-create()-in-both-SQL-lessons.--What-is-better-or-worse-in-the-two-implementations?">-  Compore create() in both SQL lessons.  What is better or worse in the two implementations? </a></li>
 <li class="toc-entry toc-h2"><a href="#Updating-a-User-in-table-in-Sqlite.db">Updating a User in table in Sqlite.db </a></li>
 <li class="toc-entry toc-h2"><a href="#Delete-a-User-in-table-in-Sqlite.db">Delete a User in table in Sqlite.db </a></li>
 </ul>
@@ -167,14 +165,16 @@ window.onload = wrap_img;
 <blockquote>
 <p>Uses PRAGMA statement to read schema.</p>
 </blockquote>
-<h2 id="Describe-Schema,-here-is-resource-Resource--What-is-a-database-schema?">
-<a class="anchor" href="#Describe-Schema,-here-is-resource-Resource--What-is-a-database-schema?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Describe Schema, here is resource <a href="https://www.sqlite.org/index.html">Resource</a>- What is a database schema?<a class="anchor-link" href="#Describe-Schema,-here-is-resource-Resource--What-is-a-database-schema?"> </a>
-</h2>
-<ul>
-<li>What is the purpose of identity Column in SQL database?</li>
-<li>What is the purpose of a primary key in SQL database?</li>
-<li>What are the Data Types in SQL table?</li>
-</ul>
+<p>Describe Schema, here is resource <a href="https://www.sqlite.org/index.html">Resource</a>A database schema is a logical framework or blueprint for how a database is organized. It defines the structure of the database, including the tables, fields, relationships, constraints, and indexes. The schema provides a roadmap for how data is stored, organized, and accessed in the database.</p>
+<p>An identity column in a SQL database is a column that is automatically generated and incremented by the database system for each new row that is inserted into a table. The purpose of an identity column is to provide a unique identifier for each row in the table, without requiring the user to specify the value explicitly.</p>
+<p>The purpose of a primary key in a SQL database is to uniquely identify each record in a table. A primary key is a column or set of columns that has a unique value for each row in the table. The primary key is used to enforce data integrity and ensure that each record in the table can be uniquely identified.</p>
+<p>The data types in a SQL table define the type of data that can be stored in each column of the table. Some common data types in SQL include:</p>
+<p>INT: used to store integer values.
+VARCHAR: used to store variable-length character strings.
+DATE: used to store date values.
+FLOAT: used to store floating-point numbers.
+BOOLEAN: used to store boolean (true/false) values.
+BLOB: used to store binary large object data (e.g. images or documents).</p>
 
 </div>
 </div>
@@ -215,24 +215,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(0, 'id', 'INTEGER', 1, None, 1)
-(1, '_name', 'VARCHAR(255)', 1, None, 0)
-(2, '_uid', 'VARCHAR(255)', 1, None, 0)
-(3, '_password', 'VARCHAR(255)', 1, None, 0)
-(4, '_dob', 'DATE', 0, None, 0)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -243,14 +225,13 @@ window.onload = wrap_img;
 <a class="anchor" href="#Reading-Users-table-in-Sqlite.db" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading Users table in Sqlite.db<a class="anchor-link" href="#Reading-Users-table-in-Sqlite.db"> </a>
 </h2>
 <blockquote>
-<p>Uses SQL SELECT statement to read data</p>
+<p>Uses SQL SELECT statement to read data
+SQLite is a lightweight, embedded database that supports a subset of SQL commands.
+A connection object is an instance of the sqlite3.Connection class, which represents a connection to a SQLite database. The connection object allows you to execute SQL commands and manage transactions.
+A cursor object is an instance of the sqlite3.Cursor class, which is used to execute SQL commands and fetch results from the database. The cursor object is created by the connection object and provides a way to iterate over the results of a SELECT statement.
+The conn object and cursor object have various attributes, depending on the specific implementation and library used. In general, the conn object might have attributes such as the database name, host, port, and connection status. The cursor object might have attributes such as the last executed SQL command, the current row, and the number of rows affected by the last command.
+"results" is likely a variable or object that holds the results of the SQL SELECT statement. Whether it is an object or not depends on how it was implemented in the code. It might be a list, tuple, dictionary, or other data structure that holds the rows returned by the SELECT statement.</p>
 </blockquote>
-<ul>
-<li>What is a connection object?  After you google it, what do you think it does?</li>
-<li>Same for cursor object?</li>
-<li>Look at conn object and cursor object in VSCode debugger.  What attributes are in the object?</li>
-<li>Is "results" an object?  How do you know?</li>
-</ul>
 
 </div>
 </div>
@@ -272,7 +253,7 @@ window.onload = wrap_img;
     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
     
     <span class="c1"># Execute a SELECT statement to retrieve data from a table</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'SELECT * FROM users'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'SELECT * FROM countries'</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
     <span class="c1"># Print the results</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -298,13 +279,9 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(1, 'Thomas Edison', 'toby', 'sha256$0Vx2NJyGPsvv9NL4$fb097dc3deb3bbcb50057305ead3e7a87aff2ecd83ded49196ced786da193bce', '1847-02-11')
-(2, 'Nikola Tesla', 'niko', 'sha256$mYgKxqUOKY9bT3LV$fc9ab824240728f22d27b7ebe0b5c404aaf361016d9575dee2ecab7936d7910d', '2023-03-15')
-(3, 'Alexander Graham Bell', 'lex', 'sha256$J10Nwhzx7wYy0ECU$eff3097f858e273c82e7824aecab9ccef9fa3636a647d77d2ec26a8ae6ba42e6', '2023-03-15')
-(4, 'Eli Whitney', 'whit', 'sha256$ugCaMwHcpUBAKiVD$b76dc19c5b31c0cd0e92c2481341339a610b9246781ed9589bb65cbb3fbb532e', '2023-03-15')
-(5, 'Indiana Jones', 'indi', 'sha256$IpKej4xYfHn4g530$8273db9eed9d52501e38fcae70066f87e57092722fe89cbfe240f8b067d6221a', '1920-10-21')
-(6, 'Marion Ravenwood', 'raven', 'sha256$Pfvv9vORD1Nw2lMW$b6c2ba6bd6404eabc43c9cd189024a62c1a581b92e67e16edfd5735e7d79f635', '1921-10-21')
-(7, 'Chinmay Ramamurthy', 'ChinmayR', 'sha256$adgbTjQjYyMUzqK9$3aee1d78f279bb619762d55c52198aff3c226c70b003650c63f6ed4911061db9', '2007-04-17')
+<pre>('hkufe', 'hfw', 238, 3248)
+('j', 'hg', 2359, 49832)
+('India', 'lij', 1000000000, 13480)
 </pre>
 </div>
 </div>
@@ -323,13 +300,9 @@ window.onload = wrap_img;
 </h2>
 <blockquote>
 <p>Uses SQL INSERT to add row</p>
-<h2 id="---Compore-create()-in-both-SQL-lessons.--What-is-better-or-worse-in-the-two-implementations?">
-<a class="anchor" href="#---Compore-create()-in-both-SQL-lessons.--What-is-better-or-worse-in-the-two-implementations?" aria-hidden="true"><span class="octicon octicon-link"></span></a>-  Compore create() in both SQL lessons.  What is better or worse in the two implementations?<a class="anchor-link" href="#---Compore-create()-in-both-SQL-lessons.--What-is-better-or-worse-in-the-two-implementations?"> </a>
-</h2>
-<ul>
-<li>Explain purpose of SQL INSERT.   Is this the same as User <strong>init</strong>?</li>
-</ul>
 </blockquote>
+<p>The SQL CREATE statement is used to create a new database object, such as a table, view, index, or trigger. It specifies the name of the object, the columns or fields in the object, and any constraints or rules for the object. The syntax and features of the CREATE statement may vary between different SQL database systems.</p>
+<p>The SQL INSERT statement is used to add new rows of data to an existing table in a database. It specifies the name of the table, the columns or fields to insert data into, and the values to insert. The purpose of the INSERT statement is to populate a table with data, either manually or programmatically. It is similar to the <strong>init</strong> method in Python classes, which is used to initialize the object with data.</p>
 
 </div>
 </div>
@@ -344,10 +317,10 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 
 <span class="k">def</span> <span class="nf">create</span><span class="p">():</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your name:"</span><span class="p">)</span>
-    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your user id:"</span><span class="p">)</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your password"</span><span class="p">)</span>
-    <span class="n">dob</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your date of birth 'YYYY-MM-DD'"</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter country name:"</span><span class="p">)</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"enter the language:"</span><span class="p">)</span>
+    <span class="n">population</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your the population:"</span><span class="p">))</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the area:"</span><span class="p">))</span>
     
     <span class="c1"># Connect to the database file</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
@@ -357,11 +330,11 @@ window.onload = wrap_img;
 
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Execute an SQL command to insert data into a table</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO users (_name, _uid, _password, _dob) VALUES (?, ?, ?, ?)"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">dob</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO countries (_name, _language, _population, _area) VALUES (?, ?, ?, ?)"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">area</span><span class="p">))</span>
         
         <span class="c1"># Commit the changes to the database</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A new user record </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2"> has been created"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A new country record </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has been created"</span><span class="p">)</span>
                 
     <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the INSERT:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
@@ -371,10 +344,24 @@ window.onload = wrap_img;
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="c1">#create()</span>
+<span class="n">create</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A new country record Canada has been created
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -389,12 +376,9 @@ window.onload = wrap_img;
 </h2>
 <blockquote>
 <p>Uses SQL UPDATE to modify password</p>
-<ul>
-<li>What does the hacked part do?</li>
-<li>Explain try/except, when would except occur?</li>
-<li>What code seems to be repeated in each of these examples to point, why is it repeated?</li>
-</ul>
 </blockquote>
+<p>This is a Python function that prompts the user for a user id and an updated password, and then updates the password for that user in a SQLite database table called "users". If the length of the updated password is less than 2 characters, it will be set to a default password of "gothackednewpassword123".</p>
+<p>To use this function, you need to have a SQLite database file containing a "users" table with columns for user id and password. The database file should be specified in the "conn" variable.</p>
 
 </div>
 </div>
@@ -409,14 +393,8 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 
 <span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
-    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter user id to update"</span><span class="p">)</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter updated password"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">"hacked"</span>
-        <span class="n">password</span> <span class="o">=</span> <span class="s1">'gothackednewpassword123'</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">"successfully updated"</span>
-
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter user name to update"</span><span class="p">)</span>
+    <span class="n">population</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"enter population to update:"</span><span class="p">))</span>
     <span class="c1"># Connect to the database file</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
 
@@ -425,12 +403,12 @@ window.onload = wrap_img;
 
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Execute an SQL command to update data in a table</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE users SET _password = ? WHERE _uid = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">uid</span><span class="p">))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE users SET _population = ? WHERE _name = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># The uid was not found in the table</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No uid </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2"> was not found in the table"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was not found in the table"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The row with user id </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2"> the password has been </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The row with name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> the population has been updated"</span><span class="p">)</span>
             <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the UPDATE:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
@@ -440,10 +418,24 @@ window.onload = wrap_img;
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="c1">#update()</span>
+<span class="n">update</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error while executing the UPDATE: no such table: users
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -459,8 +451,14 @@ window.onload = wrap_img;
 <blockquote>
 <p>Uses a delete function to remove a user based on a user input of the id.</p>
 <ul>
-<li>Is DELETE a dangerous operation?  Why?</li>
-<li>In the print statemements, what is the "f" and what does {uid} do?</li>
+<li>Is DELETE a dangerous operation?  Why?<ul>
+<li>delete is dangerous because the information cannot be recovered</li>
+</ul>
+</li>
+<li>In the print statemements, what is the "f" and what does {uid} do?<ul>
+<li>both of these embed the variables in the string</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 
@@ -477,7 +475,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 
 <span class="k">def</span> <span class="nf">delete</span><span class="p">():</span>
-    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter user id to delete"</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter name to delete"</span><span class="p">)</span>
 
     <span class="c1"># Connect to the database file</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">)</span>
@@ -486,13 +484,13 @@ window.onload = wrap_img;
     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
     
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM users WHERE _uid = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,))</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM countries WHERE _name = ?"</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,))</span>
         <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># The uid was not found in the table</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No uid </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2"> was not found in the table"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was not found in the table"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># The uid was found in the table and the row was deleted</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The row with uid </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2"> was successfully deleted"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The row with name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was successfully deleted"</span><span class="p">)</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while executing the DELETE:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
@@ -501,10 +499,24 @@ window.onload = wrap_img;
     <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
-<span class="c1">#delete()</span>
+<span class="n">delete</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The row with name India was successfully deleted
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -520,8 +532,14 @@ window.onload = wrap_img;
 <blockquote>
 <p>CRUD and Schema interactions from one location by running menu. Observe input at the top of VSCode, observe output underneath code cell.</p>
 <ul>
-<li>Why does the menu repeat?</li>
-<li>Could you refactor this menu?  Make it work with a List?</li>
+<li>Why does the menu repeat?<ul>
+<li>so we can keep doing it over and over again</li>
+</ul>
+</li>
+<li>Could you refactor this menu?  Make it work with a List?<ul>
+<li>yes, by adding each operation into a list</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 
@@ -563,6 +581,20 @@ window.onload = wrap_img;
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Please enter c, r, u, or d
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -575,11 +607,6 @@ window.onload = wrap_img;
 <ul>
 <li>Add this Blog to you own Blogging site.  In the Blog add notes and observations on each code cell.</li>
 <li>In this implementation, do you see procedural abstraction?</li>
-<li>In 2.4a or 2.4b lecture<ul>
-<li>Do you see data abstraction?  Complement this with Debugging example.</li>
-<li>Use Imperative or OOP style to Create a new Table or do something that applies to your CPT project.</li>
-</ul>
-</li>
 </ul>
 <p>Reference... <a href="https://www.sqlitetutorial.net/sqlite-python/creating-tables/">sqlite documentation</a></p>
 
