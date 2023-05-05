@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SASS | The Chinmay Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="SASS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://chinmaydr.github.io/chinmay_fastpages/2023/05/04/sass-lesson.html" />
+<meta property="og:url" content="https://chinmaydr.github.io/chinmay_fastpages/2023/05/04/sass-lesson.html" />
+<meta property="og:site_name" content="The Chinmay Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-05-04T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SASS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-04T00:00:00-05:00","datePublished":"2023-05-04T00:00:00-05:00","description":"An easy to use blogging platform with support for Jupyter Notebooks.","headline":"SASS","mainEntityOfPage":{"@type":"WebPage","@id":"https://chinmaydr.github.io/chinmay_fastpages/2023/05/04/sass-lesson.html"},"url":"https://chinmaydr.github.io/chinmay_fastpages/2023/05/04/sass-lesson.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chinmay_fastpages/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://chinmaydr.github.io/chinmay_fastpages/feed.xml" title="The Chinmay Blog" /><link rel="shortcut icon" type="image/x-icon" href="/chinmay_fastpages/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chinmay_fastpages/">The Chinmay Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chinmay_fastpages/posts/2022-10-02-AWShacksmd">ASW Hacks</a><a class="page-link" href="/chinmay_fastpages/Science/">Science</a><a class="page-link" href="/chinmay_fastpages/about/">About Me</a><a class="page-link" href="/chinmay_fastpages/frontend/">Frontend</a><a class="page-link" href="/chinmay_fastpages/gallery/">Gallery</a><a class="page-link" href="/chinmay_fastpages/table/">My Table</a><a class="page-link" href="/chinmay_fastpages/notes/">Notes</a><a class="page-link" href="/chinmay_fastpages/search/">Search</a><a class="page-link" href="/chinmay_fastpages/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SASS</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-05-04T00:00:00-05:00" itemprop="datePublished">
+        May 4, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/chinmaydr/chinmay_fastpages/tree/master/_notebooks/sass-lesson.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/chinmaydr/chinmay_fastpages/master?filepath=_notebooks%2Fsass-lesson.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/chinmaydr/chinmay_fastpages/blob/master/_notebooks/sass-lesson.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fchinmaydr%2Fchinmay_fastpages%2Fblob%2Fmaster%2F_notebooks%2Fsass-lesson.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/chinmay_fastpages/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/sass-lesson.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Why-SASS?">Why SASS?<a class="anchor-link" href="#Why-SASS?"> </a></h1><p>SASS is a preprocessor language that is compiled into CSS, which means that SASS code is translated into CSS code, which is what your web browser can read.</p>
+<h1 id="SASS-vs-SCSS">SASS vs SCSS<a class="anchor-link" href="#SASS-vs-SCSS"> </a></h1><p>As you learn about Sass, you might notice something called Scss. They are basically the same thing except that Scss uses curly braces and semicolons to distinguish between lines. Sass uses indentation and newlines instead.</p>
+<p>We will be teaching the Scss syntax because it is more commonly used.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Getting-started">Getting started<a class="anchor-link" href="#Getting-started"> </a></h1><p>A easy way to write SASS and have it preprocessed into CSS is by using a Jekyll powered website, such as GitHub pages or Fastpages.</p>
+<p>The first step is to clone a GitHub pages repo, such as this <a href="https://github.com/lwu1822/sassy_squad">one</a>.</p>
+<p>Within the repository, head over to <code>assets/css/</code>, and open <code>style.scss</code>.</p>
+<p>This is where you can create your SASS code.</p>
+<p>To see your CSS-translated SASS code, head over to <code>_site/assets/css/style.css</code></p>
+<p>Note: You will need to run bundle exec jekyll serve before the _site directory appears.</p>
+<p>The first few hundred lines are used to style Github's theme. Make sure to scroll to the very bottom to see the SASS code that you wrote, which is in the form of CSS.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Nesting:">Nesting:<a class="anchor-link" href="#Nesting:"> </a></h1><p>Sure! Here are some bullet points on nesting in SASS:</p>
+<ul>
+<li>SASS allows for nesting of CSS rules, which can make the code easier to read and organize.</li>
+<li>To nest a rule in SASS, simply indent it under the parent rule.</li>
+<li>For example, to nest a <code>ul</code> element inside a <code>nav</code> element, you could write:</li>
+</ul>
+
+<pre><code>nav {
+  ul {
+    /* nested CSS rules go here */
+  }
+}</code></pre>
+<ul>
+<li>You can also nest pseudo-selectors and media queries in SASS.</li>
+<li>It's important to be mindful of over-nesting, as it can lead to overly-specific CSS and make the code harder to maintain.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Mini-hack">Mini-hack<a class="anchor-link" href="#Mini-hack"> </a></h1><p>Write out the SASS equivalent for the following CSS code:</p>
+
+<pre><code>.a .b {
+    color: green;
+}
+
+.a .c {
+    color: blue;
+}</code></pre>
+<p>SASS:</p>
+
+<pre><code>.a {
+  .b {
+    color: green;
+  }
+
+  .c {
+    color: blue;
+  }
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Extend/Inheritance">Extend/Inheritance<a class="anchor-link" href="#Extend/Inheritance"> </a></h1><p>What are some similarities that the buttons share? What are the differences?</p>
+<p>Take notes here:</p>
+<h3 id="Extend">Extend<a class="anchor-link" href="#Extend"> </a></h3><ul>
+<li><code>@extend</code> is a feature in SASS that allows you to share a set of CSS properties from one selector to another.</li>
+<li>This allows you to keep your CSS DRY (Don't Repeat Yourself).</li>
+<li>Syntax: <code>@extend selector;</code></li>
+<li><p>Example:</p>
+
+<pre><code>.button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+}
+
+.button-small {
+  @extend .button;
+  padding: 5px 10px;
+  font-size: 12px;
+}</code></pre>
+<ul>
+<li>The <code>.button-small</code> class extends the styles of <code>.button</code> while also adding some new styles specific to <code>.button-small</code>.</li>
+<li>The resulting CSS will have the styles for <code>.button-small</code> and <code>.button</code> combined, so <code>.button-small</code> will have <code>padding</code>, <code>background-color</code>, <code>color</code>, and <code>font-size</code> properties.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance"> </a></h3><ul>
+<li>SASS supports inheritance through the use of the <code>@extend</code> directive.</li>
+<li>Inheritance allows you to create a base style and extend it to child selectors.</li>
+<li>This is useful for creating consistent styles for elements that share similar characteristics.</li>
+<li><p>Example:</p>
+
+<pre><code>%button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+}
+
+.button-small {
+  @extend %button;
+  padding: 5px 10px;
+  font-size: 12px;
+}</code></pre>
+<ul>
+<li><code>%button</code> is called a placeholder selector, and it defines a set of properties that can be extended by other selectors.</li>
+<li><code>.button-small</code> extends <code>%button</code>, and the resulting CSS will have the styles for <code>.button-small</code> and <code>%button</code> combined.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Mixin">Mixin<a class="anchor-link" href="#Mixin"> </a></h1><p>Take notes here:</p>
+<ul>
+<li>Mixins in Sass allow you to group a set of CSS declarations and reuse them throughout your code.</li>
+<li>Mixins are defined using the <code>@mixin</code> directive, followed by a name and a set of CSS declarations in curly braces.</li>
+<li>Mixins can also accept arguments, which can be used to customize the output of the mixin.</li>
+<li>Mixins are included in other selectors using the <code>@include</code> directive, followed by the name of the mixin.</li>
+<li>Mixins can be used to help keep your code DRY and reduce repetition.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Mini-hack">Mini-hack<a class="anchor-link" href="#Mini-hack"> </a></h1><p>Write out a mixin in SASS that takes in a color and a font size as the parameter. Within the mixin, set the background color and font color to the color parameter, and set the font size to the font size parameter. Then create a selector that calls the mixin, and pass in a color and font size of your choice as the arguments.</p>
+
+<pre><code>@mixin bg-font-color($color, $font-size) {
+  background-color: $color;
+  color: $color;
+  font-size: $font-size;
+}
+
+.my-selector {
+  @include bg-font-color(#FF5733, 32px);
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Function">Function<a class="anchor-link" href="#Function"> </a></h1><p>SASS functions are reusable blocks of code that perform specific tasks and return a value. They can accept arguments and can be used to manipulate data before outputting a value. SASS provides built-in functions for common operations such as math, string manipulation, and color manipulation, and also allows you to define custom functions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Import">Import<a class="anchor-link" href="#Import"> </a></h1><p>SASS <code>@import</code> directive is used to include one SASS file in another. When <code>@import</code> is used, the contents of the imported file are included in the CSS output.</p>
+<p>Some important things to note about SASS <code>@import</code>:</p>
+<ul>
+<li>The file extension <code>.scss</code> is optional</li>
+<li>You can import a partial file (file name starting with an underscore <code>_partial.scss</code>) to prevent it from being compiled to its own CSS file</li>
+<li>When importing a file, the path is relative to the current file being compiled </li>
+<li>You can import multiple files at once by separating the file names with commas</li>
+<li>SASS supports importing CSS files as well as SASS files</li>
+<li>It is recommended to use <code>@use</code> instead of <code>@import</code> in newer versions of SASS</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="SASS-Hacks">SASS Hacks<a class="anchor-link" href="#SASS-Hacks"> </a></h1><ol>
+<li><p>Take notes and complete the mini-hacks. (0.9)</p>
+</li>
+<li><p>Complete the <a href="https://lwu1822.github.io/sassy_squad/quizQuestions">quiz questions</a> and provide your answers in this notebook. (0.9)
+Multiple Choice Quiz Questions
+What is SASS?
+a. A type of operating system used by many devices
+-&gt; b. A scripting language that has many styling operations
+c. The name of a commonly used computer networking system
+d. A debugging system with many features</p>
+</li>
+</ol>
+<p>What is the difference between SASS and SCSS?
+-&gt; a. They are very similar in their function, but their syntax is slightly different
+b. They are the exact same, but SASS is more commonly used
+c. SASS was developed by a larger company</p>
+<p>What is an example of an advantage of using SASS over just CSS?
+a. SASS has more functions than CSS
+b. SASS is not as expensive to use than CSS
+-&gt; c. CSS takes up more bytes
+d. CSS is not as commonly used, so it’s hard to find solutions to problems that arise while coding in it.</p>
+<p>What does SASS stand for?
+a. Systematically Arranged Sample Sheets
+-&gt; b. Syntactically Awesome Style Sheets</p>
+<p>Which of the following is NOT an example of an available SASS directive?
+a. warn
+b. debug
+c. import
+-&gt; d. compute</p>
+<p>The __ directive is used to share rules and relationships between selectors.
+a. each
+-&gt; b. extend
+c. mixin
+d. error</p>
+<p>What is “@___” called?
+a. Enhancement
+b. Directive
+-&gt; c. Label
+d. Token</p>
+<ol>
+<li>Use SASS to create something that uses either extend or mixin. (0.9)
+```
+%button {
+background-color: blue;
+color: white;
+padding: 10px;
+border-radius: 5px;
+}</li>
+</ol>
+<p>.submit-button {
+  @extend %button;
+  font-size: 18px;
+}</p>
+<p>.cancel-button {
+  @extend %button;
+  border: 2px solid red;
+}</p>
+
+<pre><code>5. Extra credit: Research other SASS features and blog about what you learned or add to your SASS project with any extra features not covered in this lesson. More points will be given if both are done.
+
+1. Variables: Sass allows you to define variables that can be reused throughout your stylesheets. This makes it easy to make global changes to your styles by simply changing the value of a variable.
+
+Example: 
+
+```scss
+$primary-color: #007bff;
+
+button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: #fff;
+}</code></pre>
+<ol>
+<li>Operators: Sass allows you to perform basic math operations on values, making it easier to create complex styles.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span><span class="o">;</span>
+  <span class="nt">max-width</span><span class="nd">:</span> <span class="nt">960px</span><span class="o">;</span>
+  <span class="nt">margin</span><span class="nd">:</span> <span class="nt">0</span> <span class="nt">auto</span><span class="o">;</span>
+  <span class="nt">padding</span><span class="nd">:</span> <span class="nt">30px</span><span class="o">;</span>
+
+  <span class="o">@</span><span class="nt">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">padding</span><span class="nd">:</span> <span class="nt">50px</span><span class="o">;</span>
+    <span class="nt">width</span><span class="nd">:</span> <span class="nt">75</span><span class="err">%</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ol>
+<li>Control Directives: Sass provides several directives that allow you to control the flow of your code, including <code>@if</code>, <code>@for</code>, <code>@each</code>, and <code>@while</code>.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="mi">12</span> <span class="p">{</span>
+  <span class="nc">.col-</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span> <span class="p">{</span>
+    <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span> <span class="o">/</span> <span class="nt">12</span> <span class="o">*</span> <span class="err">$</span><span class="nt">i</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ol>
+<li>Partials: Sass allows you to split your styles into smaller files, called partials, which can then be included in your main stylesheet using <code>@import</code>.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><span class="c1">// _variables.scss</span>
+
+<span class="nv">$primary-color</span><span class="o">:</span> <span class="mh">#007bff</span><span class="p">;</span>
+<span class="nv">$secondary-color</span><span class="o">:</span> <span class="mh">#6c757d</span><span class="p">;</span>
+
+<span class="c1">// main.scss</span>
+
+<span class="k">@import</span> <span class="s1">&#39;variables&#39;</span><span class="p">;</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nt">background-color</span><span class="nd">:</span> <span class="err">$</span><span class="nt">secondary-color</span><span class="o">;</span>
+  <span class="nt">color</span><span class="nd">:</span> <span class="err">$</span><span class="nt">primary-color</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chinmay_fastpages/2023/05/04/sass-lesson.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chinmay_fastpages/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://chinmaydr.github.io/chinmay_fastpages/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chinmay_fastpages/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
