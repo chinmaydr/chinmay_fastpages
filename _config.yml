@@ -6,15 +6,18 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: The Chinmay Blog
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: USC Robot Dynamics and Control - Exoskeleton Project 
+description: -
 github_username: chinmaydr
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "chinmay_fastpages"
+github_repo: "USCRoboticsControlExoskeleton2024"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
-url: "https://chinmaydr.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://chinmaydr.github.io/USCRoboticsControlExoskeleton2024" # the base hostname & protocol for your site, e.g. http://example.com
+remote_theme: pages-themes/merlot@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
